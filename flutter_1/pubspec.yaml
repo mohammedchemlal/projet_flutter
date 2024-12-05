@@ -1,0 +1,90 @@
+name: flutter_1
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  sqflite: ^2.0.0
+  path_provider: ^2.0.5
+  fluttertoast: ^8.0.8
+  url_strategy: ^0.3.0  
+  pie_chart: ^5.4.0
+  lottie: ^3.1.3         
+  datetime_picker_formfield: ^2.0.0
+  intl: ^0.20.0          
+  cupertino_icons: ^1.0.2
+  http: ^1.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0   # Mise à jour
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/secu/class.png
+    - assets/secu/complaints.png
+    - assets/secu/edit.png
+    - assets/secu/home.png
+    - assets/secu/logout.png
+    - assets/secu/mail.png
+    - assets/secu/menu.png
+    - assets/secu/name.png
+    - assets/secu/notifications.png
+    - assets/secu/padlock.png
+    - assets/secu/phone.png
+    - assets/secu/profile.png
+    - assets/secu/reservations.png
+    - assets/secu/username.png
+    - assets/prof/complaints.png
+    - assets/prof/edit.png
+    - assets/prof/home.png
+    - assets/prof/menu.png
+    - assets/prof/logout.png
+    - assets/prof/mail.png
+    - assets/prof/name.png
+    - assets/prof/username.png
+    - assets/prof/notifications.png
+    - assets/prof/padlock.png
+    - assets/prof/phone.png
+    - assets/prof/profile.png
+    - assets/prof/reservations.png
+    - assets/admin/class.png
+    - assets/piconline2.png
+    - assets/3azi.png
+    - assets/proff.png
+    - assets/admin/complaintes.png
+    - assets/admin/comptes.png
+    - assets/admin/edit.png
+    - assets/admin/home.png
+    - assets/admin/logout.png
+    - assets/admin/mail.png
+    - assets/admin/menu.png
+    - assets/admin/name.png
+    - assets/admin/padlock.png
+    - assets/admin/phone.png
+    - assets/admin/profile.png
+    - assets/admin/reservations.png
+    - assets/admin/username.png
+    - assets/admin/dashboard.png
+    - assets/admin/anger.png
+    - assets/admin/calendar.png
+    - assets/admin/classroom.png
+    - assets/admin/team.png
+    - assets/admin/cours.png
+    - assets/logoEMSI.png
+    - assets/secu/complaintepage.png
+    - assets/prof/complaintepage.png
+    - assets/prof/bookingnotif.png
+    - assets/admin/angryComp.png
+    - assets/img.png
+    - assets/img.png
