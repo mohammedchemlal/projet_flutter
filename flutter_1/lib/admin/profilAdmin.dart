@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Navigation Example',
-      theme: ThemeData.light(),  // Default light theme
-      darkTheme: ThemeData.dark(), // Dark theme
+      theme: ThemeData.light(),  
+      darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,
 
       routes: {
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
 }
 
 String name="";
-String username="mohammed";
+String username="";
 String password="";
 String email="";
 String phoneNumber="";
@@ -219,8 +219,8 @@ class _profilAdmin extends State<profilAdmin>{
                     children: [
                       Image.asset(
                         "assets/piconline2.png",
-                        width: 50, 
-                        height: 50, 
+                        width: 40, 
+                        height: 40, 
                         fit: BoxFit.cover, 
                       ),
                       Positioned(

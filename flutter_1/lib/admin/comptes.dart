@@ -113,7 +113,7 @@ class _affichage extends State<comptesAdmin> {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Fermer le dialogue
+                Navigator.of(context).pop(); 
               },
               child: const Text('Annuler'),
             ),
@@ -184,14 +184,13 @@ class _affichage extends State<comptesAdmin> {
       if (response.statusCode == 200) {
         // Handle success
         print('Compte supprimé avec succès');
-        // Update the UI by fetching the updated list of salles
+
         fetchAndSetAcc();
       } else {
-        // Handle other HTTP status codes
+      
         print('HTTP Error: ${response.statusCode}');
       }
     } catch (e) {
-      // Handle exceptions
       print('Error: $e');
     }
   }
@@ -319,7 +318,7 @@ class _affichage extends State<comptesAdmin> {
               height: 1,
               margin: EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.grey[300],  // Adjust the color to your preference
+                color: Colors.grey[300],  
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -339,7 +338,7 @@ class _affichage extends State<comptesAdmin> {
               height: 1,
               margin: EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.grey[300],  // Adjust the color to your preference
+                color: Colors.grey[300],  
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -359,7 +358,7 @@ class _affichage extends State<comptesAdmin> {
               height: 1,
               margin: EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.grey[300],  // Adjust the color to your preference
+                color: Colors.grey[300],  
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -379,7 +378,7 @@ class _affichage extends State<comptesAdmin> {
               height: 1,
               margin: EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.grey[300],  // Adjust the color to your preference
+                color: Colors.grey[300],  
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -397,7 +396,7 @@ class _affichage extends State<comptesAdmin> {
               height: 1,
               margin: EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.grey[300],  // Adjust the color to your preference
+                color: Colors.grey[300], 
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -417,7 +416,7 @@ class _affichage extends State<comptesAdmin> {
               height: 1,
               margin: EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.grey[300],  // Adjust the color to your preference
+                color: Colors.grey[300],  
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -436,7 +435,7 @@ class _affichage extends State<comptesAdmin> {
               height: 1,
               margin: EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: Colors.grey[300],  // Adjust the color to your preference
+                color: Colors.grey[300], 
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -620,7 +619,7 @@ class _affichage extends State<comptesAdmin> {
                     style: TextStyle(color: Colors.white, fontSize: 20,),
                   ),
                   content: Container(
-                    height: 500.0, // Set a smaller height
+                    height: 500.0, 
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -687,23 +686,23 @@ class _affichage extends State<comptesAdmin> {
                   actions: <Widget>[
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).pop(); // Fermer le dialogue
+                        Navigator.of(context).pop(); 
                       },
                       child: const Text(
                         'Annuler',
                         style: TextStyle(
-                          color: Colors.white, // Choisir une couleur pour le texte
-                          fontSize: 16, // Ajuster la taille du texte
+                          color: Colors.white, 
+                          fontSize: 16, 
                         ),
                       ),
                     ),
 
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: drawerHeaderColor, backgroundColor: Colors.white, // Choisir une couleur pour le texte du bouton
-                        elevation: 4, // Ajouter une légère ombre
+                        foregroundColor: drawerHeaderColor, backgroundColor: Colors.white, 
+                        elevation: 4, 
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8), // Coins arrondis
+                          borderRadius: BorderRadius.circular(8), 
                         ),
                       ),
                       onPressed: () {
@@ -717,7 +716,7 @@ class _affichage extends State<comptesAdmin> {
                           batimentController.text,
                           coursController.text,
                         );
-                        Navigator.of(context).pop(); // Fermer le dialogue
+                        Navigator.of(context).pop(); 
                       },
                       child: const Text(
                         'Valider',

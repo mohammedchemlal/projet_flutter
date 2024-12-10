@@ -676,7 +676,7 @@ class _cours extends State<coursAdmin> {
                         ),
                       ),
                       DropdownButtonFormField<String>(
-                        value: selectedFiliere, // Valeur sélectionnée
+                        value: selectedFiliere, 
                         onChanged: (String? newValue) {
                           setState(() {
                             selectedFiliere =
@@ -743,7 +743,7 @@ class _cours extends State<coursAdmin> {
                 actions: <Widget>[
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).pop(); // Fermer le dialogue
+                      Navigator.of(context).pop(); 
                     },
                     child: Text(
                       'Annuler',
@@ -759,7 +759,7 @@ class _cours extends State<coursAdmin> {
                         selectedProf.toString(),
                         selectedAnnee.toString(),
                       );
-                      Navigator.of(context).pop(); // Fermer le dialogue
+                      Navigator.of(context).pop(); 
                     },
                     child: Text('Valider'),
                   ),

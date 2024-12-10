@@ -230,7 +230,7 @@ class _compState extends State<complaintesAdmin>{
             height: 1,
             margin: EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              color: Colors.grey[300],  // Adjust the color to your preference
+              color: Colors.grey[300],  
               borderRadius: BorderRadius.all(Radius.circular(5)),
             ),
           ),
@@ -248,7 +248,7 @@ class _compState extends State<complaintesAdmin>{
             height: 1,
             margin: EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              color: Colors.grey[300],  // Adjust the color to your preference
+              color: Colors.grey[300],  
               borderRadius: BorderRadius.all(Radius.circular(5)),
             ),
           ),
