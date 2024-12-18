@@ -31,7 +31,7 @@ class infosContactAdmin extends StatelessWidget {
     if (newMail.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validateEmail.php'),
+          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validateEmail.php'),
           body: {
             "email": newMail,
             "currentUsername":usernam,
@@ -61,7 +61,7 @@ class infosContactAdmin extends StatelessWidget {
     if (phoneNumber.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validatePhone.php'),
+          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validatePhone.php'),
           body: {
             "phoneNumber": phoneNumber,
             "currentUsername":usernam,
@@ -100,7 +100,7 @@ class infosContactAdmin extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          titleSpacing: 95,
+          titleSpacing: 30,
         ),
       ),
       body: Container(

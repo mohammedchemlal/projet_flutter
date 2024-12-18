@@ -65,7 +65,7 @@ class _profil extends State<profil>{
   }
 
   Future<void> fetchName() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievename.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievename.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -75,26 +75,26 @@ class _profil extends State<profil>{
         var data = json.decode(response.body);
         if (data.containsKey('name')) {
           setState(() {
-            name = data['name']; // Set the fetched name in the state
+            name = data['name']; 
           });
         } else {
           setState(() {
-            name = 'Name not found'; // Set a default message if 'name' is not available
+            name = 'Name not found'; 
           });
         }
       } else {
         setState(() {
-          name = 'Failed to fetch data'; // Set an error message if HTTP request fails
+          name = 'Failed to fetch data'; 
         });
       }
     } catch (e) {
       setState(() {
-        name = 'Error: $e'; // Set an error message if an exception occurs
+        name = 'Error: $e'; 
       });
     }
   }
   Future<void> fetchPassword() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievepassword.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievepassword.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -104,26 +104,26 @@ class _profil extends State<profil>{
         var data = json.decode(response.body);
         if (data.containsKey('password')) {
           setState(() {
-            password = data['password']; // Set the fetched name in the state
+            password = data['password']; 
           });
         } else {
           setState(() {
-            password = 'Password not found'; // Set a default message if 'name' is not available
+            password = 'Password not found'; 
           });
         }
       } else {
         setState(() {
-          password = 'Failed to fetch data'; // Set an error message if HTTP request fails
+          password = 'Failed to fetch data'; 
         });
       }
     } catch (e) {
       setState(() {
-        password = 'Error: $e'; // Set an error message if an exception occurs
+        password = 'Error: $e';
       });
     }
   }
   Future<void> fetchNumber() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievephone.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievephone.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -133,26 +133,26 @@ class _profil extends State<profil>{
         var data = json.decode(response.body);
         if (data.containsKey('phoneNumber')) {
           setState(() {
-            phoneNumber = data['phoneNumber']; // Set the fetched name in the state
+            phoneNumber = data['phoneNumber']; 
           });
         } else {
           setState(() {
-            phoneNumber = 'phoneNumber not found'; // Set a default message if 'name' is not available
+            phoneNumber = 'phoneNumber not found'; 
           });
         }
       } else {
         setState(() {
-          phoneNumber = 'Failed to fetch data'; // Set an error message if HTTP request fails
+          phoneNumber = 'Failed to fetch data'; 
         });
       }
     } catch (e) {
       setState(() {
-        phoneNumber = 'Error: $e'; // Set an error message if an exception occurs
+        phoneNumber = 'Error: $e'; 
       });
     }
   }
   Future<void> fetchEmail() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrieveemail.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrieveemail.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -162,21 +162,21 @@ class _profil extends State<profil>{
         var data = json.decode(response.body);
         if (data.containsKey('email')) {
           setState(() {
-            email = data['email']; // Set the fetched name in the state
+            email = data['email']; 
           });
         } else {
           setState(() {
-            email = 'Password not found'; // Set a default message if 'name' is not available
+            email = 'Password not found'; 
           });
         }
       } else {
         setState(() {
-          email = 'Failed to fetch data'; // Set an error message if HTTP request fails
+          email = 'Failed to fetch data'; 
         });
       }
     } catch (e) {
       setState(() {
-        email = 'Error: $e'; // Set an error message if an exception occurs
+        email = 'Error: $e'; 
       });
     }
   }
@@ -187,7 +187,7 @@ class _profil extends State<profil>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0), 
         child: AppBar(
           backgroundColor: Colors.white,
           title: const Align(
@@ -217,23 +217,23 @@ class _profil extends State<profil>{
                         children: [
                           Image.asset(
                             "assets/3azi.png",
-                            width: 50, // Adjust the width as needed
-                            height: 50, // Adjust the height as needed
-                            fit: BoxFit.cover, // or another BoxFit option depending on your layout requirements
+                            width: 60,
+                            height: 60, 
+                            fit: BoxFit.cover,
                           ),
                           Positioned(
                             bottom: 10,
                             left: 60,
                             right: 20,
                             child: Container(
-                              color: Colors.white.withOpacity(0), // You can customize the background color and opacity
+                              color: Colors.white.withOpacity(0),
                               padding: EdgeInsets.symmetric(vertical: 1.0),
                               child: Text(
                                 username,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12,// You can customize the text color
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -243,7 +243,7 @@ class _profil extends State<profil>{
                       ),
                       trailing: Image.asset('assets/logoEMSI.png'),
                       onTap: () {
-                        // Your onTap logic here
+                      
                       },
                     ),
                     const SizedBox(height:20),
@@ -378,8 +378,9 @@ class _profil extends State<profil>{
                 children: [
                   Row(
                     children: [
-                      Image.asset("assets/3azi.png"), // Image 1 in the first row
-                      const SizedBox(width: 12), // Spacer between the images// Image 2 in the first row
+                      Image.asset("assets/3azi.png",width: 120,
+                            height: 120,),
+                      const SizedBox(width: 3), 
                     ],
                   ),
                 ],

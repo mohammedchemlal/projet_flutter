@@ -84,7 +84,8 @@ class _ConnexionPageState extends State<ConnexionPage> {
 
 Future<void> login() async {
   //var url = 'http://127.0.0.1/api_flutter_1/login.php';
-  var url = 'http://10.0.2.2/api_flutter_1/login.php';
+  //var url = 'http://10.0.2.2/api_flutter_1/login.php';
+ var url = 'http://192.168.1.9/api_flutter_1/login.php';
   if (username.text.isEmpty || password.text.isEmpty) {
     Fluttertoast.showToast(
       msg: "Veuillez remplir tous les champs",
@@ -94,7 +95,7 @@ Future<void> login() async {
       textColor: Colors.white,
       fontSize: 16.0,
     );
-    return; // Quitte la méthode si les champs sont vides
+    return; 
   }
 
   try {
@@ -107,7 +108,7 @@ Future<void> login() async {
       Map<String, dynamic> data = json.decode(response.body);
       print('CA MARCHE');
 
-      String userType = data['userType'] ?? 'unknown'; // Valeur par défaut
+      String userType = data['userType'] ?? 'unknown'; 
       if (data['status'] == 'success') {
         if (userType == 'Agent') {
           globals.globalDataS = username.text;
@@ -122,15 +123,14 @@ Future<void> login() async {
           Navigator.pushNamed(context, 'notificationsS');
         } else if (userType == 'Admin') {
           globals.globalDataA = username.text;
-          Fluttertoast.showToast(msg: "Login successful", /* autres propriétés */);
+          Fluttertoast.showToast(msg: "Login successful", );
           Navigator.pushNamed(context, 'comptes');
         } else if (userType == 'Prof') {
           globals.globalDataP = username.text;
-          Fluttertoast.showToast(msg: "Login successful", /* autres propriétés */);
+          Fluttertoast.showToast(msg: "Login successful", );
           Navigator.pushNamed(context, 'notifications');
         }
       } else {
-        // Afficher un message d'erreur
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -160,7 +160,7 @@ Future<void> login() async {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/img.png'),
-          fit: BoxFit.cover, // Adjust this based on your needs
+          fit: BoxFit.cover, 
         ),
       ),
       child: Scaffold(
@@ -179,19 +179,20 @@ Future<void> login() async {
                     width: 150,
                   ),
                 ),
+                const SizedBox(height: 50),
                 const Text(
                   'A U T H E N T I F I C A T I O N',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 50),
                 const Align(
                   alignment: Alignment.center,
                   child: Text(
                     'Bienvenue à myEMSISalles!',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                 ),
-                const SizedBox(height: 140),
+                const SizedBox(height: 10),
                 
                 TextFormField(
                   controller: username,

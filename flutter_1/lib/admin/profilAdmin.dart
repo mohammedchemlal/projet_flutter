@@ -71,7 +71,7 @@ class _profilAdmin extends State<profilAdmin>{
   }
 
   Future<void> fetchName() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievename.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievename.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -100,7 +100,7 @@ class _profilAdmin extends State<profilAdmin>{
     }
   }
   Future<void> fetchPassword() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievepassword.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievepassword.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -129,7 +129,7 @@ class _profilAdmin extends State<profilAdmin>{
     }
   }
   Future<void> fetchNumber() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievephone.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievephone.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -158,7 +158,7 @@ class _profilAdmin extends State<profilAdmin>{
     }
   }
   Future<void> fetchEmail() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrieveemail.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrieveemail.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -219,8 +219,8 @@ class _profilAdmin extends State<profilAdmin>{
                     children: [
                       Image.asset(
                         "assets/piconline2.png",
-                        width: 40, 
-                        height: 40, 
+                        width: 60, 
+                        height: 60, 
                         fit: BoxFit.cover, 
                       ),
                       Positioned(
@@ -443,8 +443,10 @@ class _profilAdmin extends State<profilAdmin>{
                 children: [
                   Row(
                     children: [
-                      Image.asset("assets/piconline2.png"), 
-                      const SizedBox(width: 12), 
+                      Image.asset("assets/piconline2.png",
+                      width: 120, 
+                        height: 120, ), 
+                      const SizedBox(width: 3), 
                     ],
                   ),
                 ],
@@ -494,10 +496,10 @@ class _profilAdmin extends State<profilAdmin>{
                 subtitle: const Text("Mot de passe", style: TextStyle(color: Colors.black87, fontSize: 11)),
               ),
               const Divider(
-                color: Colors.black87, // Couleur du trait
-                thickness: 0, // Épaisseur du trait
-                indent: 40, // Marg gauche
-                endIndent: 20, // Marg droit
+                color: Colors.black87, 
+                thickness: 0, 
+                indent: 40, 
+                endIndent: 20, 
                 height: 0,
               ),
               const SizedBox(height: 20,),
@@ -509,9 +511,9 @@ class _profilAdmin extends State<profilAdmin>{
                 },
               ),
               const Divider(
-                color: Colors.black87, // Couleur du trait
-                thickness: 0, // 
-                indent: 40, // Marg à gauche
+                color: Colors.black87,
+                thickness: 0,  
+                indent: 40, 
                 endIndent: 20, 
                 height: 0,
               ),

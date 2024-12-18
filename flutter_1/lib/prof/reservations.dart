@@ -43,7 +43,7 @@ class reservationsProf extends StatefulWidget {
   State<reservationsProf> createState() => _notifState();
 }
 class _notifState extends State<reservationsProf>{
-  List<dynamic> list = []; // Your list to hold notifications
+  List<dynamic> list = []; 
   DateTime selectedDate = DateTime.now();
   @override
   void initState() {
@@ -60,7 +60,7 @@ class _notifState extends State<reservationsProf>{
   }
 
   Future<List<dynamic>> fetchReservations() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/getReservations.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/getReservations.php';
 
     try {
       var response = await http.post(
@@ -83,9 +83,9 @@ class _notifState extends State<reservationsProf>{
 
 
   Future<void> fetchAndSetReservations() async {
-    var fetched = await fetchReservations(); // Call the function to fetch notifications
+    var fetched = await fetchReservations(); 
     setState(() {
-      list = fetched; // Set the fetched notifications to the list
+      list = fetched; 
     });
   }
   Future<void> sendData(
@@ -94,8 +94,7 @@ class _notifState extends State<reservationsProf>{
       String batiment,
       String prof,
       ) async {
-    var url = Uri.parse('http://10.0.2.2/api_flutter_1/send/sendNotifToSecu.php'); // Replace with your PHP endpoint
-
+    var url = Uri.parse('http://192.168.1.9/api_flutter_1/send/sendNotifToSecu.php'); 
     try {
       var response = await http.post(
         url,
@@ -107,14 +106,13 @@ class _notifState extends State<reservationsProf>{
         },
       );
       if (response.statusCode == 200) {
-        // Data sent successfully
+
         print('Data sent successfully');
       } else {
-        // Handle other status codes
+        
         print('Failed to send data. Status code: ${response.statusCode}');
       }
     } catch (e) {
-      // Handle exceptions
       print('Error: $e');
     }
   }
@@ -124,7 +122,7 @@ class _notifState extends State<reservationsProf>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0), 
         child: AppBar(
           backgroundColor: Colors.white,
           title: const Align(
@@ -139,7 +137,8 @@ class _notifState extends State<reservationsProf>{
               textAlign: TextAlign.center,
             ),
           ),
-          titleSpacing: 85,
+          titleSpacing: 30,
+
         ),
       ),
       drawer: Drawer(
@@ -155,23 +154,23 @@ class _notifState extends State<reservationsProf>{
 
                           Image.asset(
                           "assets/proff.png",
-                          width: 50, // Adjust the width as needed
-                          height: 50, // Adjust the height as needed
-                          fit: BoxFit.cover, // or another BoxFit option depending on your layout requirements
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
                         ),
                       Positioned(
                         bottom: 10,
                         left: 60,
                         right: 20,
                         child: Container(
-                          color: Colors.white.withOpacity(0), // You can customize the background color and opacity
+                          color: Colors.white.withOpacity(0), 
                           padding: EdgeInsets.symmetric(vertical: 1.0),
                           child: Text(
                             username,
                             textAlign: TextAlign.start,
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 12,// You can customize the text color
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -181,7 +180,7 @@ class _notifState extends State<reservationsProf>{
     ),
                       trailing: Image.asset('assets/logoEMSI.png'),
                       onTap: () {
-                        // Your onTap logic here
+
                       },
                     ),
                     const SizedBox(height:1),
@@ -211,7 +210,7 @@ class _notifState extends State<reservationsProf>{
                 height: 1,
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],  // Adjust the color to your preference
+                  color: Colors.grey[300],  
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
               ),
@@ -228,7 +227,7 @@ class _notifState extends State<reservationsProf>{
                 height: 1,
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],  // Adjust the color to your preference
+                  color: Colors.grey[300],  
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
               ),
@@ -245,7 +244,7 @@ class _notifState extends State<reservationsProf>{
                 height: 1,
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],  // Adjust the color to your preference
+                  color: Colors.grey[300],  
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
               ),
@@ -326,7 +325,7 @@ class _notifState extends State<reservationsProf>{
       if (picked != null && picked != selectedDate) {
       setState(() {
       selectedDate = picked;
-      list = filterByDate(selectedDate); // Filter the list based on selected date
+      list = filterByDate(selectedDate); 
       });
       }
       },
@@ -341,9 +340,9 @@ class _notifState extends State<reservationsProf>{
         fetchAndSetReservations();
       }, style: ElevatedButton.styleFrom(backgroundColor: drawerHeaderColor),
           child: Icon(Icons.refresh_rounded, color: Colors.white,)),),
-      SizedBox(height: 23), // Adjust spacing
+      SizedBox(height: 23), 
 
-      // ListView.builder to display filtered reservations
+      
       Expanded(
         child: list.isEmpty
             ? Center(
@@ -389,7 +388,7 @@ class _notifState extends State<reservationsProf>{
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 4), // Adjust this height according to your preference
+                      SizedBox(height: 4), 
                       Text(
                         'Reservée pour le: ${list[i]['dateRes']}',
                         style: TextStyle(
@@ -404,7 +403,7 @@ class _notifState extends State<reservationsProf>{
                           color: Colors.white,
                         ),
                       ),
-                      // Add more Text widgets for additional subtitles
+                      
                     ],
                   ),
                   onTap: null,
@@ -429,9 +428,9 @@ class _notifState extends State<reservationsProf>{
         ),
       ),
       bottomNavigationBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0), // Set your desired height here
+        preferredSize: Size.fromHeight(50.0), 
         child: SizedBox(
-          height: 50.0, // Adjust this to match preferredSize height
+          height: 50.0, 
           child: BottomAppBar(
             color: Colors.transparent,
             child: Center(
@@ -439,7 +438,7 @@ class _notifState extends State<reservationsProf>{
                 '©Ecole Maroccaine de Science de Ingenieur-2024',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 12.0, // Adjust font size if needed// Change text color if needed
+                  fontSize: 12.0, 
                 ),
               ),
             ),

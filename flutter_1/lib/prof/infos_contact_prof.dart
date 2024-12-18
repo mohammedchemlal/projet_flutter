@@ -31,7 +31,7 @@ class infosContactProf extends StatelessWidget {
     if (newMail.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validateEmail.php'),
+          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validateEmail.php'),
           body: {
             "email": newMail,
             "currentUsername":usernam,
@@ -61,7 +61,7 @@ class infosContactProf extends StatelessWidget {
     if (phoneNumber.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validatePhone.php'),
+          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validatePhone.php'),
           body: {
             "phone": phoneNumber,
             "currentUsername":usernam,
@@ -69,19 +69,17 @@ class infosContactProf extends StatelessWidget {
         );
 
         if (response.statusCode == 200) {
-          // Handle successful response
+          
           phone.text="";
         } else {
-          // Log the specific error code and reason
+          
           print("HTTP request failed with status: ${response.statusCode}, ${response.reasonPhrase}");
         }
       } catch (e) {
-        // Log the exception details
         print("Error: $e");
       }
 
     } else {
-      // The TextField is empty
       print("Please enter a name");
     }
   }
@@ -89,7 +87,7 @@ class infosContactProf extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0), 
         child: AppBar(
           backgroundColor: drawerHeaderColor,
           title: const Align(
@@ -104,7 +102,7 @@ class infosContactProf extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          titleSpacing: 95,
+          titleSpacing: 30,
         ),
       ),
       body: Container(

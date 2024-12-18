@@ -51,8 +51,8 @@ class complaintesProf extends StatefulWidget {
 
 class _complaintesState extends State<complaintesProf> {
   late List<String> sallesData = [];
-  late List<String> batimentData = ["1","2","3","4","5"];
-  late List<String> heures = ["8h30-10h20","10h30-12h20","14h-15h50","16h-17h50"];
+  late List<String> batimentData = ["EMSI 3","EMSI 2","EMSI 1","EMSI HASAN","EMSI AGDAL"];
+  late List<String> heures = ["8h30-10h20","10h30-12h30","14h-16h00","16h15-18h15"];
   late List<String> jours = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
 
   @override
@@ -69,7 +69,7 @@ class _complaintesState extends State<complaintesProf> {
     });
   }
   Future<bool> sendDataToPHP() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/insert/insertcomplaintaboutagent.php'; // Replace with your PHP script URL
+    final String url = 'http://192.168.1.9/api_flutter_1/insert/insertcomplaintaboutagent.php'; // Replace with your PHP script URL
     try {
       var response = await http.post(
         Uri.parse(url),
@@ -87,23 +87,23 @@ class _complaintesState extends State<complaintesProf> {
         if (data['status'] == "Success") {
           print('Data sent successfully');
           print('Response: ${response.body}');
-          return true; // Request successful
+          return true; 
         } else {
           print('Failed to send data. Error: ${data['error']}');
-          return false; // Request failed
+          return false; 
         }
       } else {
         print('Failed to send data. Error: ${response.statusCode}, ${response.reasonPhrase}');
-        return false; // Request failed
+        return false; 
       }
     } catch (e) {
       print('Failed to send data. Error: $e');
-      return false; // Request failed
+      return false; 
     }
   }
   Future<List<String>> fetchSallesData() async {
     try {
-      final response = await http.get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/retrieveclass.php'));
+      final response = await http.get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/retrieveclass.php'));
 
       if (response.statusCode == 200) {
         List<dynamic> data = json.decode(response.body);
@@ -114,7 +114,7 @@ class _complaintesState extends State<complaintesProf> {
       }
     } catch (e) {
       print('Error fetching data: $e');
-      return []; // Return an empty list or handle the error accordingly
+      return []; 
     }
   }
 
@@ -133,7 +133,7 @@ class _complaintesState extends State<complaintesProf> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0), 
         child: AppBar(
           backgroundColor: Colors.white,
           title: const Align(
@@ -164,23 +164,23 @@ class _complaintesState extends State<complaintesProf> {
 
                           Image.asset(
                             "assets/proff.png",
-                            width: 50, // Adjust the width as needed
-                            height: 50, // Adjust the height as needed
-                            fit: BoxFit.cover, // or another BoxFit option depending on your layout requirements
+                            width: 50, 
+                            height: 50, 
+                            fit: BoxFit.cover, 
                           ),
                           Positioned(
                             bottom: 10,
                             left: 60,
                             right: 20,
                             child: Container(
-                              color: Colors.white.withOpacity(0), // You can customize the background color and opacity
+                              color: Colors.white.withOpacity(0), 
                               padding: EdgeInsets.symmetric(vertical: 1.0),
                               child: Text(
                                 prof,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12,// You can customize the text color
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -190,7 +190,6 @@ class _complaintesState extends State<complaintesProf> {
                       ),
                       trailing: Image.asset('assets/logoEMSI.png'),
                       onTap: () {
-                        // Your onTap logic here
                       },
                     ),
                     const SizedBox(height:20),
@@ -218,7 +217,7 @@ class _complaintesState extends State<complaintesProf> {
                 height: 1,
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],  // Adjust the color to your preference
+                  color: Colors.grey[300],  
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
               ),
@@ -364,10 +363,10 @@ class _complaintesState extends State<complaintesProf> {
                   ),
                   iconEnabledColor: drawerHeaderColor,
                   borderRadius: BorderRadius.horizontal(),
-                  value: selectedSalle,// Set the selected value
+                  value: selectedSalle,
                   onChanged: (String? newValue) {
     setState(() {
-    selectedSalle = newValue; // Update the selected value
+    selectedSalle = newValue; 
     });
                   },
                   items: sallesData.map((String value) {
@@ -388,10 +387,10 @@ class _complaintesState extends State<complaintesProf> {
                   ),
                   iconEnabledColor: drawerHeaderColor,
                   borderRadius: BorderRadius.horizontal(),
-                  value: selectedBatiment,// Set the selected value
+                  value: selectedBatiment,
                   onChanged: (String? newValue) {
     setState(() {
-    selectedBatiment = newValue; // Update the selected value
+    selectedBatiment = newValue; 
     });
                   },
                   items: batimentData.map((String value) {
@@ -411,12 +410,12 @@ class _complaintesState extends State<complaintesProf> {
                   ),
                   iconEnabledColor: drawerHeaderColor,
                   borderRadius: BorderRadius.horizontal(),
-                  value: selectedJour, // Set the selected value
+                  value: selectedJour, 
                   onChanged: (String? newValue) {
                     setState(() {
-                      selectedJour = newValue; // Update the selected value
+                      selectedJour = newValue; 
                     });
-                    // Perform actions based on the newValue if needed
+            
                   },
                   items: jours.map((String value) {
                     return DropdownMenuItem<String>(

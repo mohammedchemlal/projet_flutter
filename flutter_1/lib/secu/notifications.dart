@@ -41,31 +41,29 @@ class notifications extends StatefulWidget {
   State<notifications> createState() => _notifState();
 }
 class _notifState extends State<notifications>{
-  List<dynamic> list = []; // Your list to hold notifications
+  List<dynamic> list = []; 
 
   @override
   void initState() {
     super.initState();
-    fetchAndSetNotifications(); // Fetch notifications when the widget initializes
+    fetchAndSetNotifications(); 
   }
   Future<List<dynamic>> fetchNotifications() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/getNotifs.php'; // Replace with your PHP script URL
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/getNotifs.php'; 
 
     try {
       var response = await http.get(Uri.parse(url));
 
       if (response.statusCode == 200) {
         var data = json.decode(response.body);
-        return data as List<dynamic>; // Return the parsed JSON data as a list of dynamic objects
+        return data as List<dynamic>; 
       } else {
-        // Handle HTTP error status codes
         print('HTTP Error: ${response.statusCode}');
-        return []; // Return an empty list if there's an error
+        return []; 
       }
     } catch (e) {
-      // Handle exceptions
       print('Error: $e');
-      return []; // Return an empty list in case of exceptions
+      return []; 
     }
   }
   Future<void> sendData(
@@ -75,7 +73,7 @@ class _notifState extends State<notifications>{
       String secu,
       String prof,
       ) async {
-    var url = Uri.parse('http://10.0.2.2/api_flutter_1/send/sendNotifToProf.php'); // Replace with your PHP endpoint
+    var url = Uri.parse('http://192.168.1.9/api_flutter_1/send/sendNotifToProf.php'); 
 
     try {
       var response = await http.post(
@@ -89,21 +87,18 @@ class _notifState extends State<notifications>{
         },
       );
       if (response.statusCode == 200) {
-        // Data sent successfully
         print('Data sent successfully');
       } else {
-        // Handle other status codes
         print('Failed to send data. Status code: ${response.statusCode}');
       }
     } catch (e) {
-      // Handle exceptions
       print('Error: $e');
     }
   }
   Future<void> fetchAndSetNotifications() async {
-    var fetchedNotifications = await fetchNotifications(); // Call the function to fetch notifications
+    var fetchedNotifications = await fetchNotifications(); 
     setState(() {
-      list = fetchedNotifications; // Set the fetched notifications to the list
+      list = fetchedNotifications; 
     });
   }
   bool isConfirmed = false;
@@ -112,7 +107,7 @@ class _notifState extends State<notifications>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0), 
         child: AppBar(
           backgroundColor: Colors.white,
           title: const Align(
@@ -127,7 +122,7 @@ class _notifState extends State<notifications>{
               textAlign: TextAlign.center,
             ),
           ),
-          titleSpacing: 65,
+          titleSpacing: 30,
         ),
       ),
       drawer: Drawer(
@@ -142,23 +137,23 @@ class _notifState extends State<notifications>{
                         children: [
                           Image.asset(
                             "assets/3azi.png",
-                            width: 50, // Adjust the width as needed
-                            height: 50, // Adjust the height as needed
-                            fit: BoxFit.cover, // or another BoxFit option depending on your layout requirements
+                            width: 50, 
+                            height: 50, 
+                            fit: BoxFit.cover, 
                           ),
                           Positioned(
                             bottom: 10,
                             left: 60,
                             right: 20,
                             child: Container(
-                              color: Colors.white.withOpacity(0), // You can customize the background color and opacity
+                              color: Colors.white.withOpacity(0), 
                               padding: EdgeInsets.symmetric(vertical: 1.0),
                               child: Text(
                                 username,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12,// You can customize the text color
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -213,7 +208,7 @@ class _notifState extends State<notifications>{
                 height: 1,
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],  // Adjust the color to your preference
+                  color: Colors.grey[300],  
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
               ),
@@ -230,7 +225,7 @@ class _notifState extends State<notifications>{
                 height: 1,
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],  // Adjust the color to your preference
+                  color: Colors.grey[300],  
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
               ),
@@ -247,7 +242,7 @@ class _notifState extends State<notifications>{
                 height: 1,
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],  // Adjust the color to your preference
+                  color: Colors.grey[300], 
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
               ),
@@ -384,9 +379,9 @@ class _notifState extends State<notifications>{
         ),
       ),
       bottomNavigationBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0), // Set your desired height here
+        preferredSize: Size.fromHeight(50.0), 
         child: SizedBox(
-          height: 50.0, // Adjust this to match preferredSize height
+          height: 50.0, 
           child: BottomAppBar(
             color: Colors.transparent,
             child: Center(
@@ -394,7 +389,7 @@ class _notifState extends State<notifications>{
                '©Ecole Maroccaine de Science de Ingenieur-2024',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 12.0, // Adjust font size if needed// Change text color if needed
+                  fontSize: 12.0, 
                 ),
               ),
             ),

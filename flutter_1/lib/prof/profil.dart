@@ -63,7 +63,7 @@ class _profilProfState extends State<profilProf> {
     fetchNumber();// Call fetchData() when the widget initializes
   }
   Future<void> fetchName() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievename.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievename.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -73,26 +73,26 @@ class _profilProfState extends State<profilProf> {
         var data = json.decode(response.body);
         if (data.containsKey('name')) {
           setState(() {
-            name = data['name']; // Set the fetched name in the state
+            name = data['name']; 
           });
         } else {
           setState(() {
-            name = 'Name not found'; // Set a default message if 'name' is not available
+            name = 'Name not found'; 
           });
         }
       } else {
         setState(() {
-          name = 'Failed to fetch data'; // Set an error message if HTTP request fails
+          name = 'Failed to fetch data'; 
         });
       }
     } catch (e) {
       setState(() {
-        name = 'Error: $e'; // Set an error message if an exception occurs
+        name = 'Error: $e'; 
       });
     }
   }
   Future<void> fetchPassword() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievepassword.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievepassword.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -102,16 +102,16 @@ class _profilProfState extends State<profilProf> {
         var data = json.decode(response.body);
         if (data.containsKey('password')) {
           setState(() {
-            password = data['password']; // Set the fetched name in the state
+            password = data['password']; 
           });
         } else {
           setState(() {
-            password = 'Password not found'; // Set a default message if 'name' is not available
+            password = 'Password not found'; 
           });
         }
       } else {
         setState(() {
-          password = 'Failed to fetch data'; // Set an error message if HTTP request fails
+          password = 'Failed to fetch data'; 
         });
       }
     } catch (e) {
@@ -121,7 +121,7 @@ class _profilProfState extends State<profilProf> {
     }
   }
   Future<void> fetchNumber() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievephone.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievephone.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -145,12 +145,12 @@ class _profilProfState extends State<profilProf> {
       }
     } catch (e) {
       setState(() {
-        phoneNumber = 'Error: $e'; // Set an error message if an exception occurs
+        phoneNumber = 'Error: $e'; 
       });
     }
   }
   Future<void> fetchEmail() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrieveemail.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrieveemail.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -215,9 +215,9 @@ class _profilProfState extends State<profilProf> {
 
                           Image.asset(
                             "assets/proff.png",
-                            width: 50, // Adjust the width as needed
-                            height: 50, // Adjust the height as needed
-                            fit: BoxFit.cover, // or another BoxFit option depending on your layout requirements
+                            width: 60, 
+                            height: 60, 
+                            fit: BoxFit.cover, 
                           ),
                           Positioned(
                             bottom: 10,
@@ -376,8 +376,9 @@ class _profilProfState extends State<profilProf> {
                 children: [
                   Row(
                     children: [
-                      Image.asset("assets/proff.png"), // Image 1 in the first row
-                      const SizedBox(width: 12), // Spacer between the images// Image 2 in the first row
+                      Image.asset("assets/proff.png", width: 120, 
+                        height: 120, ), 
+                      const SizedBox(width: 3), 
                     ],
                   ),
                 ],
@@ -392,10 +393,10 @@ class _profilProfState extends State<profilProf> {
                 },
               ),
               const Divider(
-                color: Colors.black87, // Couleur du trait
-                thickness: 0, // Épaisseur du trait
-                indent: 40, // Marge à gauche
-                endIndent: 20, // Marge à droit
+                color: Colors.black87, 
+                thickness: 0, 
+                indent: 40, 
+                endIndent: 20, 
                 height: 0,
               ),
               ListTile(

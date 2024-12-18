@@ -54,7 +54,7 @@ class dashboardAdmin extends StatefulWidget {
 }
 
 class _dashboardAdminState extends State<dashboardAdmin> {
-  late int complaintsCount = 0; //instancier s de toutes les buildcards
+  late int complaintsCount = 0; 
   late int CompteCount = 0;
   late int ReservationsCount = 0;
   late int SallesCount = 0;
@@ -65,7 +65,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
   @override
   void initState() {
     super.initState();
-    fetchComplaintsCount(); // déclarer la méthode ici
+    fetchComplaintsCount(); 
     fetchCompteCount();
     fetchReservationsCount();
     fetchSallesCount();
@@ -74,7 +74,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
   }
   Future<int> getReservationsCountCercle() async {
     final response = await http
-        .get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getdataSR.php'));
+        .get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdataSR.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -97,7 +97,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<int> getNONreservationsCountCercle() async {
     final response = await http
-        .get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getdataSNR.php'));
+        .get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdataSNR.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -119,7 +119,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
   }
   Future<int> getComplaintsCount() async {
     final response = await http
-        .get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getdata.php'));
+        .get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdata.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -130,9 +130,9 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<void> fetchComplaintsCount() async {
     try {
-      final count = await getComplaintsCount(); //// changer nom  de la fonction
+      final count = await getComplaintsCount(); 
       setState(() {
-        complaintsCount = count; //// changer complaintsCount
+        complaintsCount = count; 
       });
     } catch (e) {
       // Handle errors
@@ -142,7 +142,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<int> getCompteCount() async {
     final response = await http.get(
-        Uri.parse('http:////10.0.2.2/api_flutter_1/retrieve/getdataCompte.php'));
+        Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdataCompte.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -153,9 +153,9 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<void> fetchCompteCount() async {
     try {
-      final count = await getCompteCount(); //// changer nom  de la fonction
+      final count = await getCompteCount(); 
       setState(() {
-        CompteCount = count; //// changer complaintsCount
+        CompteCount = count; 
       });
     } catch (e) {
       // Handle errors
@@ -165,7 +165,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<int> getReservationsCount() async {
     final response = await http.get(Uri.parse(
-        'http:////10.0.2.2/api_flutter_1/retrieve/getdataReservation.php'));
+        'http://192.168.1.9/api_flutter_1/retrieve/getdataReservation.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -177,19 +177,19 @@ class _dashboardAdminState extends State<dashboardAdmin> {
   Future<void> fetchReservationsCount() async {
     try {
       final count =
-          await getReservationsCount(); //// changer nom  de la fonction
+          await getReservationsCount(); 
       setState(() {
-        ReservationsCount = count; //// changer complaintsCount
+        ReservationsCount = count; 
       });
     } catch (e) {
-      // Handle errors
+      
       print('Error fetching reservations count: $e');
     }
   }
 
   Future<int> getSallesCount() async {
     final response = await http.get(
-        Uri.parse('http:////10.0.2.2/api_flutter_1/retrieve/getdataSalles.php'));
+        Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdataSalles.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -200,9 +200,9 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<void> fetchSallesCount() async {
     try {
-      final count = await getSallesCount(); //// changer nom  de la fonction
+      final count = await getSallesCount(); 
       setState(() {
-        SallesCount = count; //// changer complaintsCount
+        SallesCount = count; 
       });
     } catch (e) {
       print('Error fetching Salles count: $e');
@@ -218,11 +218,11 @@ class _dashboardAdminState extends State<dashboardAdmin> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize:
-            const Size.fromHeight(39.0), // Adjust the height as needed
+            const Size.fromHeight(43.0), 
         child: AppBar(
           backgroundColor: Colors.white,
           title: const Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.center,
             child: Text(
               'D A S H B O A R D',
               style: TextStyle(
@@ -233,7 +233,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
               textAlign: TextAlign.center,
             ),
           ),
-          titleSpacing: 100,
+          titleSpacing: 20,
         ),
       ),
       drawer: Drawer(
@@ -378,7 +378,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
             height: 1,
             margin: EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              color: Colors.grey[300],  // Adjust the color to your preference
+              color: Colors.grey[300],  
               borderRadius: BorderRadius.all(Radius.circular(5)),
             ),
           ),
@@ -501,7 +501,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   buildCard("assets/admin/anger.png", "Complaintes",
-                      '$complaintsCount'), /////////// !!!!!!! appeler le compteur
+                      '$complaintsCount'), 
                   buildCard("assets/admin/team.png", "Comptes", '$CompteCount'),
                   //style: TextStyle(color: Colors.black),
                 ],
@@ -556,12 +556,12 @@ class _dashboardAdminState extends State<dashboardAdmin> {
                   fontSize: 15.0,
                 ),
               ),
-              SizedBox(height: 3.0),
+              SizedBox(height: 9.0),
               Text(
                 count,
                 style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w100,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],

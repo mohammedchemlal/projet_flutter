@@ -58,7 +58,7 @@ class _compState extends State<complaintesAdmin>{
     fetchAndSetComplaintes();
   }
   Future<List<dynamic>> fetchComplaintes() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/getComplaintes.php'; 
+    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/getComplaintes.php'; 
 
     try {
       var response = await http.get(Uri.parse(url));
@@ -103,7 +103,7 @@ class _compState extends State<complaintesAdmin>{
               textAlign: TextAlign.center,
             ),
           ),
-          titleSpacing: 85,
+          titleSpacing: 30,
         ),
       ),
       drawer: Drawer(

@@ -44,15 +44,15 @@ class notificationsProf extends StatefulWidget {
   State<notificationsProf> createState() => _notifState();
 }
 class _notifState extends State<notificationsProf>{
-  List<dynamic> list = []; // Your list to hold notifications
+  List<dynamic> list = []; 
 
   @override
   void initState() {
     super.initState();
-    fetchAndSetNotifications(); // Fetch notifications when the widget initializes
+    fetchAndSetNotifications(); 
   }
   Future<List<dynamic>> fetchNotifications(String versProf) async {
-    var url = Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getNotifsProf.php'); // Replace with your PHP script URL
+    var url = Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getNotifsProf.php'); 
 
     try {
       var response = await http.post(
@@ -62,23 +62,23 @@ class _notifState extends State<notificationsProf>{
           });
       if (response.statusCode == 200) {
         var data = json.decode(response.body);
-        return data as List<dynamic>; // Return the parsed JSON data as a list of dynamic objects
+        return data as List<dynamic>; 
       } else {
-        // Handle HTTP error status codes
+      
         print('HTTP Error: ${response.statusCode}');
-        return []; // Return an empty list if there's an error
+        return []; 
       }
     } catch (e) {
-      // Handle exceptions
+      
       print('Error: $e');
-      return []; // Return an empty list in case of exceptions
+      return []; 
     }
   }
 
   Future<void> fetchAndSetNotifications() async {
-    var fetchedNotifications = await fetchNotifications(user); // Call the function to fetch notifications
+    var fetchedNotifications = await fetchNotifications(user); 
     setState(() {
-      list = fetchedNotifications; // Set the fetched notifications to the list
+      list = fetchedNotifications; 
     });
   }
   bool isConfirmed = false;
@@ -87,7 +87,7 @@ class _notifState extends State<notificationsProf>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0), 
         child: AppBar(
           backgroundColor: Colors.white,
           title: const Align(
@@ -102,7 +102,7 @@ class _notifState extends State<notificationsProf>{
               textAlign: TextAlign.center,
             ),
           ),
-          titleSpacing: 90,
+          titleSpacing: 30,
         ),
       ),
       drawer: Drawer(
@@ -118,23 +118,23 @@ class _notifState extends State<notificationsProf>{
 
                           Image.asset(
                             "assets/proff.png",
-                            width: 50, // Adjust the width as needed
-                            height: 50, // Adjust the height as needed
-                            fit: BoxFit.cover, // or another BoxFit option depending on your layout requirements
+                            width: 50, 
+                            height: 50, 
+                            fit: BoxFit.cover, 
                           ),
                           Positioned(
                             bottom: 10,
                             left: 60,
                             right: 20,
                             child: Container(
-                              color: Colors.white.withOpacity(0), // You can customize the background color and opacity
+                              color: Colors.white.withOpacity(0), 
                               padding: EdgeInsets.symmetric(vertical: 1.0),
                               child: Text(
                                 user,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12,// You can customize the text color
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -144,7 +144,7 @@ class _notifState extends State<notificationsProf>{
                       ),
                       trailing: Image.asset('assets/logoEMSI.png'),
                       onTap: () {
-                        // Your onTap logic here
+                        
                       },
                     ),
                     const SizedBox(height:20),

@@ -35,7 +35,7 @@ class acceuilProf extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0),
         child: AppBar(
           backgroundColor: Colors.white,
           title: const Align(

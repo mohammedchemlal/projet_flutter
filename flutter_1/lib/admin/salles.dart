@@ -123,7 +123,7 @@ class _affichage extends State<sallesAdmin> {
 
   Future<List<dynamic>> fetchComplaintes() async {
     final String url =
-        'http://127.0.0.1/api_flutter_1/retrieve/getInfoSalles.php'; 
+        'http://192.168.1.9/api_flutter_1/retrieve/getInfoSalles.php'; 
 
     try {
       var response = await http.get(Uri.parse(url));
@@ -151,7 +151,7 @@ class _affichage extends State<sallesAdmin> {
   }
 
   Future<void> deleteSalle() async {
-    final String url = 'http://127.0.0.1/api_flutter_1/insert/deleteSalle.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/insert/deleteSalle.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {
@@ -170,7 +170,7 @@ class _affichage extends State<sallesAdmin> {
   }
 
   Future<void> addSalle(String numero, String etage, String batiment) async {
-    final String url = 'http://10.0.2.2/api_flutter_1/insert/addSalle.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/insert/addSalle.php';
 
     try {
       var response = await http.post(Uri.parse(url),
@@ -190,7 +190,7 @@ class _affichage extends State<sallesAdmin> {
 
   Future<void> updateSalle(String etage, String batiment, String num,
       int numActuel, int etageActuel, int batimentActuel) async {
-    final String url = 'http://10.0.2.2/api_flutter_1/insert/update.php';
+    final String url = 'http://192.168.1.9/api_flutter_1/insert/update.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {

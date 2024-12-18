@@ -54,7 +54,7 @@ class infosBasiques extends StatelessWidget {
   }*/
 
   Future<bool> checkCredentials() async {
-    Uri url = Uri.parse("http://localhost/api_flutter_1/validate/checkcredentials.php");
+    Uri url = Uri.parse("http://192.168.1.9/api_flutter_1/validate/checkcredentials.php");
 
     var response = await http.post(url, body: {
       "username": us,
@@ -117,7 +117,6 @@ class infosBasiques extends StatelessWidget {
       }
 
     } else {
-      // The TextField is empty
       print("Please enter a name");
     }
   }
@@ -126,26 +125,21 @@ class infosBasiques extends StatelessWidget {
     if (newUsername.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validateusername.php'),
+          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validateusername.php'),
           body: {
             "username": newUsername,
             "currentUsername": us,
-            // Other parameters you might need to send
           },
         );
         if (response.statusCode == 200) {
-          // Handle successful response
           username.text="";
         } else {
-          // Log the specific error code and reason
           print("HTTP request failed with status: ${response.statusCode}, ${response.reasonPhrase}");
         }
       } catch (e) {
-        // Log the exception details
         print("Error: $e");
       }
     } else {
-      // The TextField is empty
       print("Please enter a name");
     }
   }
@@ -154,7 +148,7 @@ class infosBasiques extends StatelessWidget {
     if (pass.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validatepassword.php'),
+          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validatepassword.php'),
           body: {
             "currentUsername":us,
             "password": pass
@@ -164,16 +158,13 @@ class infosBasiques extends StatelessWidget {
           newPassword.text="";
           print("yes");
         } else {
-          // Log the specific error code and reason
           print("HTTP request failed with status: ${response.statusCode}, ${response.reasonPhrase}");
         }
       } catch (e) {
-        // Log the exception details
         print("Error: $e");
       }
 
     } else {
-      // The TextField is empty
       print("Please enter a name");
     }
   }
@@ -182,7 +173,7 @@ class infosBasiques extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0), 
         child: AppBar(
           backgroundColor: drawerHeaderColor,
           title: const Align(
@@ -198,7 +189,7 @@ class infosBasiques extends StatelessWidget {
             ),
 
           ),
-          titleSpacing: 95,
+          titleSpacing: 30,
         ),
       ),
       body: Container(

@@ -149,7 +149,7 @@ class _affichage extends State<comptesAdmin> {
   }
   Future<List<dynamic>> fetchAcc() async {
     const String url =
-        'http://10.0.2.2/api_flutter_1/retrieve/getInfoAccounts.php';
+        'http://192.168.1.9/api_flutter_1/retrieve/getInfoAccounts.php';
     try {
       var response = await http.get(Uri.parse(url));
 
@@ -174,7 +174,7 @@ class _affichage extends State<comptesAdmin> {
     });
   }
   Future<void> deleteAcc() async {
-    const String url = 'http://10.0.2.2/api_flutter_1/insert/deleteAccount.php';
+    const String url = 'http://192.168.1.9/api_flutter_1/insert/deleteAccount.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {
@@ -196,7 +196,7 @@ class _affichage extends State<comptesAdmin> {
   }
 
   Future<void> addAcc(String username, String password, String name,String phonenumber, String email, String usertype,String batiment,String cours) async {
-    String url = 'http://10.0.2.2/api_flutter_1/insert/addAccount.php'; 
+    String url = 'http://192.168.1.9/api_flutter_1/insert/addAccount.php'; 
 
     //  les valeurs envoi
     print('Nom  : $username');

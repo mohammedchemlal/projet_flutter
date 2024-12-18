@@ -49,7 +49,7 @@ class complaintes extends StatefulWidget {
 }
 
 class _complainteState extends State<complaintes> {
-  late List<String> sallesData = ["207","204","208"];
+  late List<String> sallesData = ["1C"];
   late List<String> profData = [];
   late List<String> heures = ["8h30-10h20","10h30-12h20","14h-15h50","16h-17h50"];
   late List<String> jours = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
@@ -70,7 +70,8 @@ class _complainteState extends State<complaintes> {
     });
   }
   Future<bool> sendDataToPHP() async {
-    final String url = 'http://10.0.2.2/api_flutter_1/insert/insertcomplaintaboutprof.php'; // Replace with your PHP script URL
+   final String url = 'http://192.168.1.9/api_flutter_1/insert/insertcomplaintaboutprof.php'; 
+   
     try {
       var response = await http.post(
         Uri.parse(url),
@@ -97,15 +98,15 @@ class _complainteState extends State<complaintes> {
         }
       } else {
         print('Failed to send data. Error: ${response.statusCode}, ${response.reasonPhrase}');
-        return false; // Request failed
+        return false; 
       }
     } catch (e) {
       print('Failed to send data. Error: $e');
-      return false; // Request failed
+      return false; 
     }
   }
   Future<List<String>> fetchSallesData(String username) async {
-    final url = Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/retrieveclassfrombatiment.php'); // Replace with your API endpoint
+    final url = Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/retrieveclassfrombatiment.php'); // Replace with your API endpoint
 
     try {
       final response = await http.post(
@@ -123,13 +124,13 @@ class _complainteState extends State<complaintes> {
       }
     } catch (e) {
       print('Error fetching data: $e');
-      return []; // Return an empty list or handle the error accordingly
+      return []; 
     }
   }
 
   Future<void> fetchAndSetSallesData() async {
     try {
-      final data = await fetchSallesData(secu); // Replace with the actual username
+      final data = await fetchSallesData(secu); 
       setState(() {
         sallesData = data;
       });
@@ -139,7 +140,7 @@ class _complainteState extends State<complaintes> {
   }
   Future<List<String>> fetchProfData() async {
     try {
-      final response = await http.get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/retrieveprofessors.php'));
+      final response = await http.get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/retrieveprofessors.php'));
 
       if (response.statusCode == 200) {
         List<dynamic> data = json.decode(response.body);
@@ -150,7 +151,7 @@ class _complainteState extends State<complaintes> {
       }
     } catch (e) {
       print('Error fetching data: $e');
-      return []; // Return an empty list or handle the error accordingly
+      return []; 
     }
   }
   Future<void> fetchAndSetProfsData() async {
@@ -168,7 +169,7 @@ class _complainteState extends State<complaintes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(39.0), // Adjust the height as needed
+        preferredSize: const Size.fromHeight(39.0), 
         child: AppBar(
           backgroundColor: Colors.white,
           title: const Align(
@@ -183,7 +184,7 @@ class _complainteState extends State<complaintes> {
               textAlign: TextAlign.center,
             ),
           ),
-          titleSpacing: 65,
+          titleSpacing: 30,
         ),
       ),
       drawer: Drawer(
@@ -198,9 +199,9 @@ class _complainteState extends State<complaintes> {
                         children: [
                           Image.asset(
                             "assets/3azi.png",
-                            width: 50, // Adjust the width as needed
-                            height: 50, // Adjust the height as needed
-                            fit: BoxFit.cover, // or another BoxFit option depending on your layout requirements
+                            width: 50, 
+                            height: 50, 
+                            fit: BoxFit.cover, 
                           ),
                           Positioned(
                             bottom: 10,
@@ -347,7 +348,7 @@ class _complainteState extends State<complaintes> {
             ]
         ),
       ),
-      //... (other scaffold properties)
+      
       body: Container(
         child: Padding(
         padding: const EdgeInsets.only(top: 30,left: 10,right: 60, bottom: 0),
@@ -389,31 +390,54 @@ class _complainteState extends State<complaintes> {
                   ),),
                 ),
               ),),
+          //  Align(
+            //  alignment: Alignment.centerLeft,
+           // child: DropdownButton<String>(
+           //   padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 0),
+           //   hint: Text(
+            //    'Sélectionnez une salle:',
+               /// style: TextStyle(color: drawerHeaderColor, fontSize: 11),
+             /// ),
+             // iconEnabledColor: drawerHeaderColor,
+            //  borderRadius: BorderRadius.horizontal(),
+             /// value: selectedSalle, // Set the selected value
+           //   onChanged: (String? newValue) {
+              //  setState(() {
+             //     selectedSalle = newValue; // Update the selected value
+              //  });
+             // },
+             // items: sallesData.map((String value) {
+             //   return DropdownMenuItem<String>(
+            //      value: value,
+            //      child: Text(value),
+          //     );
+         //     }).toList(),
+           // ),),
+            //const SizedBox(height: 10,),
             Align(
               alignment: Alignment.centerLeft,
-            child: DropdownButton<String>(
-              padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 0),
-              hint: Text(
-                'Sélectionnez une salle:',
-                style: TextStyle(color: drawerHeaderColor, fontSize: 11),
-              ),
-              iconEnabledColor: drawerHeaderColor,
-              borderRadius: BorderRadius.horizontal(),
-              value: selectedSalle, // Set the selected value
-              onChanged: (String? newValue) {
-                setState(() {
-                  selectedSalle = newValue; // Update the selected value
-                });
-              },
-              items: sallesData.map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-            ),),
-            const SizedBox(height: 10,),
-            Align(
+              child: DropdownButton<String>(
+                padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 0),
+                hint: Text(
+                  'Sélectionnez une salle:',
+                  style: TextStyle(color: drawerHeaderColor, fontSize: 11),
+                ),
+                iconEnabledColor: drawerHeaderColor,
+                borderRadius: BorderRadius.horizontal(),
+                value: selectedSalle, 
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedSalle= newValue; 
+                  });
+                },
+                items: sallesData.map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),),
+               Align(
               alignment: Alignment.centerLeft,
               child: DropdownButton<String>(
                 padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 0),
