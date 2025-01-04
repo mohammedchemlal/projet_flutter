@@ -63,7 +63,7 @@ class _profilProfState extends State<profilProf> {
     fetchNumber();// Call fetchData() when the widget initializes
   }
   Future<void> fetchName() async {
-    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievename.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievename.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -92,7 +92,7 @@ class _profilProfState extends State<profilProf> {
     }
   }
   Future<void> fetchPassword() async {
-    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievepassword.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievepassword.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -121,7 +121,7 @@ class _profilProfState extends State<profilProf> {
     }
   }
   Future<void> fetchNumber() async {
-    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrievephone.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrievephone.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,
@@ -150,7 +150,7 @@ class _profilProfState extends State<profilProf> {
     }
   }
   Future<void> fetchEmail() async {
-    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/retrieveemail.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/retrieveemail.php';
     try {
       var response = await http.post(Uri.parse(url), body: {
         'username': username,

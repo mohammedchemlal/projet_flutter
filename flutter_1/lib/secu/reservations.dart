@@ -58,7 +58,7 @@ class _notifState extends State<reservations>{
   }
 
   Future<List<dynamic>> fetchReservations() async {
-    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/getReservationsForSecu.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/getReservationsForSecu.php';
 
     try {
       var response = await http.post(
@@ -92,7 +92,7 @@ class _notifState extends State<reservations>{
       String batiment,
       String prof,
       ) async {
-    var url = Uri.parse('http://192.168.1.9/api_flutter_1/send/sendNotifToSecu.php'); 
+    var url = Uri.parse('http://10.0.2.2/api_flutter_1/send/sendNotifToSecu.php'); 
 
     try {
       var response = await http.post(

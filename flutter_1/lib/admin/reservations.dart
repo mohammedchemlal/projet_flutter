@@ -144,7 +144,7 @@ class _reservations extends State<reservationsAdmin> {
   Future<List<String>> fetchProfData() async {
     try {
       final response = await http.get(Uri.parse(
-          'http://192.168.1.9/api_flutter_1/retrieve/retrieveprofessorsusername.php'));
+          'http://10.0.2.2/api_flutter_1/retrieve/retrieveprofessorsusername.php'));
 
       if (response.statusCode == 200) {
         List<dynamic> data = json.decode(response.body);
@@ -172,7 +172,7 @@ class _reservations extends State<reservationsAdmin> {
 
   Future<List<dynamic>> fetchComplaintes() async {
     final String url =
-        'http://192.168.1.9/api_flutter_1/retrieve/getReservation.php'; 
+        'http://10.0.2.2/api_flutter_1/retrieve/getReservation.php'; 
 
     try {
       var response = await http.get(Uri.parse(url));
@@ -201,7 +201,7 @@ class _reservations extends State<reservationsAdmin> {
 
   Future<void> deleteReservation() async {
     final String url =
-        'http://192.168.1.9/api_flutter_1/insert/deleteReservation.php';
+        'http://10.0.2.2/api_flutter_1/insert/deleteReservation.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {
@@ -222,7 +222,7 @@ class _reservations extends State<reservationsAdmin> {
 
   Future<void> addReservation(int salle, int etage, int batiment,
       String dateRes, String prof, String heure) async {
-    final String url = 'http://192.168.1.9/api_flutter_1/insert/addReservation.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/insert/addReservation.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {
@@ -262,7 +262,7 @@ class _reservations extends State<reservationsAdmin> {
     // change le type
       ) async {
     final String url =
-        'http://192.168.1.9/api_flutter_1/insert/updateReservation.php';
+        'http://10.0.2.2/api_flutter_1/insert/updateReservation.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {

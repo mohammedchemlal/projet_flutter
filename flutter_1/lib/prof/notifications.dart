@@ -52,7 +52,7 @@ class _notifState extends State<notificationsProf>{
     fetchAndSetNotifications(); 
   }
   Future<List<dynamic>> fetchNotifications(String versProf) async {
-    var url = Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getNotifsProf.php'); 
+    var url = Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getNotifsProf.php'); 
 
     try {
       var response = await http.post(

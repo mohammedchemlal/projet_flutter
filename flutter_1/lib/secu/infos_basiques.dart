@@ -54,7 +54,7 @@ class infosBasiques extends StatelessWidget {
   }*/
 
   Future<bool> checkCredentials() async {
-    Uri url = Uri.parse("http://192.168.1.9/api_flutter_1/validate/checkcredentials.php");
+    Uri url = Uri.parse("http://10.0.2.2/api_flutter_1/validate/checkcredentials.php");
 
     var response = await http.post(url, body: {
       "username": us,
@@ -125,7 +125,7 @@ class infosBasiques extends StatelessWidget {
     if (newUsername.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validateusername.php'),
+          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validateusername.php'),
           body: {
             "username": newUsername,
             "currentUsername": us,
@@ -148,7 +148,7 @@ class infosBasiques extends StatelessWidget {
     if (pass.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validatepassword.php'),
+          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validatepassword.php'),
           body: {
             "currentUsername":us,
             "password": pass

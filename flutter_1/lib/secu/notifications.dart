@@ -49,7 +49,7 @@ class _notifState extends State<notifications>{
     fetchAndSetNotifications(); 
   }
   Future<List<dynamic>> fetchNotifications() async {
-    final String url = 'http://192.168.1.9/api_flutter_1/retrieve/getNotifs.php'; 
+    final String url = 'http://10.0.2.2/api_flutter_1/retrieve/getNotifs.php'; 
 
     try {
       var response = await http.get(Uri.parse(url));
@@ -73,7 +73,7 @@ class _notifState extends State<notifications>{
       String secu,
       String prof,
       ) async {
-    var url = Uri.parse('http://192.168.1.9/api_flutter_1/send/sendNotifToProf.php'); 
+    var url = Uri.parse('http://10.0.2.2/api_flutter_1/send/sendNotifToProf.php'); 
 
     try {
       var response = await http.post(

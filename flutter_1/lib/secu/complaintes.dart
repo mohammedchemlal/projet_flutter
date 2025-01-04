@@ -70,7 +70,7 @@ class _complainteState extends State<complaintes> {
     });
   }
   Future<bool> sendDataToPHP() async {
-   final String url = 'http://192.168.1.9/api_flutter_1/insert/insertcomplaintaboutprof.php'; 
+   final String url = 'http://10.0.2.2/api_flutter_1/insert/insertcomplaintaboutprof.php'; 
    
     try {
       var response = await http.post(
@@ -106,7 +106,7 @@ class _complainteState extends State<complaintes> {
     }
   }
   Future<List<String>> fetchSallesData(String username) async {
-    final url = Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/retrieveclassfrombatiment.php'); // Replace with your API endpoint
+    final url = Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/retrieveclassfrombatiment.php'); // Replace with your API endpoint
 
     try {
       final response = await http.post(
@@ -140,7 +140,7 @@ class _complainteState extends State<complaintes> {
   }
   Future<List<String>> fetchProfData() async {
     try {
-      final response = await http.get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/retrieveprofessors.php'));
+      final response = await http.get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/retrieveprofessors.php'));
 
       if (response.statusCode == 200) {
         List<dynamic> data = json.decode(response.body);

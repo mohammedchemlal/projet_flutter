@@ -84,8 +84,8 @@ class _ConnexionPageState extends State<ConnexionPage> {
 
 Future<void> login() async {
   //var url = 'http://127.0.0.1/api_flutter_1/login.php';
-  //var url = 'http://10.0.2.2/api_flutter_1/login.php';
- var url = 'http://192.168.1.9/api_flutter_1/login.php';
+  //var url = 'http://10.0.2.2/api_flutter_1/login.php';172.22.70.65
+ var url = 'http://10.0.2.2/api_flutter_1/login.php';
   if (username.text.isEmpty || password.text.isEmpty) {
     Fluttertoast.showToast(
       msg: "Veuillez remplir tous les champs",

@@ -74,7 +74,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
   }
   Future<int> getReservationsCountCercle() async {
     final response = await http
-        .get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdataSR.php'));
+        .get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getdataSR.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -97,7 +97,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<int> getNONreservationsCountCercle() async {
     final response = await http
-        .get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdataSNR.php'));
+        .get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getdataSNR.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -119,7 +119,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
   }
   Future<int> getComplaintsCount() async {
     final response = await http
-        .get(Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdata.php'));
+        .get(Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getdata.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -142,7 +142,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<int> getCompteCount() async {
     final response = await http.get(
-        Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdataCompte.php'));
+        Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getdataCompte.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -165,7 +165,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<int> getReservationsCount() async {
     final response = await http.get(Uri.parse(
-        'http://192.168.1.9/api_flutter_1/retrieve/getdataReservation.php'));
+        'http://10.0.2.2/api_flutter_1/retrieve/getdataReservation.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;
@@ -189,7 +189,7 @@ class _dashboardAdminState extends State<dashboardAdmin> {
 
   Future<int> getSallesCount() async {
     final response = await http.get(
-        Uri.parse('http://192.168.1.9/api_flutter_1/retrieve/getdataSalles.php'));
+        Uri.parse('http://10.0.2.2/api_flutter_1/retrieve/getdataSalles.php'));
 
     if (response.statusCode == 200) {
       return int.tryParse(response.body) ?? 0;

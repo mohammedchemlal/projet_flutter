@@ -44,7 +44,7 @@ class infosBasiquesProf extends StatelessWidget {
     if (newName.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validatename.php'),
+          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validatename.php'),
           body: {
             "name": newName,
             "username": usernam,
@@ -69,7 +69,7 @@ class infosBasiquesProf extends StatelessWidget {
     if (newUsername.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validateusername.php'),
+          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validateusername.php'),
           body: {
             "username": newUsername,
             "currentUsername": usernam,
@@ -92,7 +92,7 @@ class infosBasiquesProf extends StatelessWidget {
     if (pass.isNotEmpty) {
       try {
         var response = await http.post(
-          Uri.parse('http://192.168.1.9/api_flutter_1/validate/validatepassword.php'),
+          Uri.parse('http://10.0.2.2/api_flutter_1/validate/validatepassword.php'),
           body: {
             "currentUsername":usernam,
             "password": pass

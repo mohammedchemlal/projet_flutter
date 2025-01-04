@@ -140,7 +140,7 @@ class _cours extends State<coursAdmin> {
 
   Future<List<dynamic>> fetchComplaintes() async {
     final String url =
-        'http://192.168.1.9/api_flutter_1/retrieve/getCours.php';
+        'http://10.0.2.2/api_flutter_1/retrieve/getCours.php';
 
     try {
       var response = await http.get(Uri.parse(url));
@@ -170,7 +170,7 @@ class _cours extends State<coursAdmin> {
   }
 
   Future<void> deleteCours() async {
-    final String url = 'http://192.168.1.9/api_flutter_1/insert/deleteCours.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/insert/deleteCours.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {
@@ -193,7 +193,7 @@ class _cours extends State<coursAdmin> {
   }
 
   Future<void> addCours(String nom, String filiere, String prof, String annee) async {
-    final String url = 'http://192.168.1.9/api_flutter_1/insert/addCours.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/insert/addCours.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {
@@ -217,7 +217,7 @@ class _cours extends State<coursAdmin> {
 
   Future<void> updateCours(String filiere, String prof, String nom,String annee,
      String filiereActuel, String profActuel,  String nomActuel, String anneeActuelle) async {
-    final String url = 'http://192.168.1.9/api_flutter_1/insert/updateCours.php';
+    final String url = 'http://10.0.2.2/api_flutter_1/insert/updateCours.php';
 
     try {
       var response = await http.post(Uri.parse(url), body: {
@@ -249,7 +249,7 @@ class _cours extends State<coursAdmin> {
   Future<List<String>> fetchProfData() async {
     try {
       final response = await http.get(Uri.parse(
-          'http://127.0.0.1/api_flutter_1/retrieve/retrieveprofessors.php'));
+          'http://10.0.2.2/api_flutter_1/retrieve/retrieveprofessors.php'));
 
       if (response.statusCode == 200) {
         List<dynamic> data = json.decode(response.body);
